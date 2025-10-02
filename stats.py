@@ -2,6 +2,7 @@ def count_words(text):
     words = text.split()
     return len(words)
 
+
 def count_chars(text):
     chars = {}
     for char in text:
@@ -11,8 +12,10 @@ def count_chars(text):
             chars[char.lower()] = 1
     return chars
 
+
 def sort_on(item):
     return item["num"]
+
 
 def sort_dict(char_dict):
     sorted = [{"char": ch, "num": n} for ch, n in char_dict]

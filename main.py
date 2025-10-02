@@ -1,4 +1,5 @@
-from stats import count_words, count_chars, sort_dict
+from stats import (count_words, count_chars, sort_dict)
+import sys
 
 def get_book_text(file_path):
     content = ""
@@ -21,12 +22,12 @@ def print_result(path, content, sorted):
 
 
 def main():
-    path = "./books/frankenstein.txt"
-    content = get_book_text(path)
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    content = get_book_text(sys.argv[1])
     sorted = sort_dict(count_chars(content).items())
-    print_result(path, content, sorted)
-
-
+    print_result(sys.argv[1], content, sorted)
 
 
 main()
