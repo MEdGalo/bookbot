@@ -7,23 +7,26 @@ def get_book_text(file_path):
     return content
 
 
-def main():
-    path = "./books/frankenstein.txt"
-    content = get_book_text(path)
-    sorted = sort_dict(count_chars(content).items())
-
+def print_result(path, content, sorted):
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at: {path}")
     print("----------- Word Count ----------")
     print(f"Found {count_words(content)} total words")
     print("----------- Char Count ----------")
-
     for item in sorted:
         if not item["char"].isalpha():
             continue
         print(f"{item["char"]}: {item["num"]}")
-
     print("============ END ============")
+
+
+def main():
+    path = "./books/frankenstein.txt"
+    content = get_book_text(path)
+    sorted = sort_dict(count_chars(content).items())
+    print_result(path, content, sorted)
+
+
 
 
 main()
